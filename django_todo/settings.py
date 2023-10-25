@@ -2,6 +2,8 @@ from pathlib import Path
 import os
 import dj_database_url
 
+development = os.environ.get('DEVELOPMENT', False)
+
 if os.path.isfile("env.py"):
     import env
 
@@ -34,7 +36,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-8n8ex*tpdbzm6v2=)hfph
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True means Django will show more details about errors. This helps during development.
-DEBUG = True
+DEBUG = development
 # ALLOWED_HOSTS is a whitelist of sites the Django site can be accessed from. It's empty now so anyone can access it.
 ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
@@ -85,19 +87,20 @@ WSGI_APPLICATION = "django_todo.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 # DATABASES defines the database config for Django.
-# DATABASES = {
-#     # 'default' is the default database connection name.
-#     "default": {
-#         # ENGINE specifies to use 'django.db.backends.sqlite3' - this means use SQLite for the database.
-#         "ENGINE": "django.db.backends.sqlite3",
-#         # NAME gives the database file path - BASE_DIR/db.sqlite3 tells it to create a db.sqlite3 file in the base directory.
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+if development:
+    DATABASES = {
+        # 'default' is the default database connection name.
+        "default": {
+            # ENGINE specifies to use 'django.db.backends.sqlite3' - this means use SQLite for the database.
+            "ENGINE": "django.db.backends.sqlite3",
+            # NAME gives the database file path - BASE_DIR/db.sqlite3 tells it to create a db.sqlite3 file in the base directory.
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
 
 
 # Password validation
