@@ -30,13 +30,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY is generated when starting the project. This is like a password Django uses to encrypt private data.
-SECRET_KEY = "django-insecure-8n8ex*tpdbzm6v2=)hfph=gfteruzco0y5pc1&ut@u8=6nm-on"
+SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-8n8ex*tpdbzm6v2=)hfph=gfteruzco0y5pc1&ut@u8=6nm-on")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True means Django will show more details about errors. This helps during development.
 DEBUG = True
 # ALLOWED_HOSTS is a whitelist of sites the Django site can be accessed from. It's empty now so anyone can access it.
-ALLOWED_HOSTS = ['ckz8780-django-todo-project-eac7d080498b.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
