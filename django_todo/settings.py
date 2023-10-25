@@ -36,7 +36,7 @@ SECRET_KEY = "django-insecure-8n8ex*tpdbzm6v2=)hfph=gfteruzco0y5pc1&ut@u8=6nm-on
 # DEBUG = True means Django will show more details about errors. This helps during development.
 DEBUG = True
 # ALLOWED_HOSTS is a whitelist of sites the Django site can be accessed from. It's empty now so anyone can access it.
-ALLOWED_HOSTS = ["8000-mediaci-hosts-fmbzy6ti1r.us2.codeanyapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ['ckz8780-django-todo-project-eac7d080498b.herokuapp.com']
 
 
 # Application definition
