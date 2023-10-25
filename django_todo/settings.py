@@ -92,20 +92,20 @@ WSGI_APPLICATION = "django_todo.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 # DATABASES defines the database config for Django.
-if development:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+# if development:
+#     DATABASES = {
+#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#     }
+# else:
+DATABASES = {
+    # 'default' is the default database connection name.
+    "default": {
+        # ENGINE specifies to use 'django.db.backends.sqlite3' - this means use SQLite for the database.
+        "ENGINE": "django.db.backends.sqlite3",
+        # NAME gives the database file path - BASE_DIR/db.sqlite3 tells it to create a db.sqlite3 file in the base directory.
+        "NAME": BASE_DIR / "db.sqlite3",
     }
-else:
-    DATABASES = {
-        # 'default' is the default database connection name.
-        "default": {
-            # ENGINE specifies to use 'django.db.backends.sqlite3' - this means use SQLite for the database.
-            "ENGINE": "django.db.backends.sqlite3",
-            # NAME gives the database file path - BASE_DIR/db.sqlite3 tells it to create a db.sqlite3 file in the base directory.
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
+}
 
 
 # Password validation
