@@ -39,7 +39,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-8n8ex*tpdbzm6v2=)hfph
 DEBUG = development
 # ALLOWED_HOSTS is a whitelist of sites the Django site can be accessed from. It's empty now so anyone can access it.
 if development:
-    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+    ALLOWED_HOSTS = ['ckz8780-django-todo-project-eac7d080498b.herokuapp.com']
 else:
     ALLOWED_HOSTS = ['127.0.0.1']
 
