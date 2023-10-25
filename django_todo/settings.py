@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 import dj_database_url
 
-development = os.environ.get('DEVELOPMENT', False)
+development = os.environ.get('DEVELOPMENT', True)
 
 if os.path.isfile("env.py"):
     import env
@@ -37,6 +37,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-8n8ex*tpdbzm6v2=)hfph
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True means Django will show more details about errors. This helps during development.
 DEBUG = development
+
+
 # ALLOWED_HOSTS is a whitelist of sites the Django site can be accessed from. It's empty now so anyone can access it.
 if development:
     ALLOWED_HOSTS = ['ckz8780-django-todo-project-eac7d080498b.herokuapp.com']
